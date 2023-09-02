@@ -60,10 +60,10 @@ export default function Home() {
           </p>
           <div className="w-4 h-4 bg-rose-700 animate-pulse rounded-full ml-2" />
         </div>
-        <p className={cn("mb-4 -mt-1 font-semibold text-lg", aqiToCategory(data?.data.current.pollution.aqius!).color)}>{aqiToCategory(data?.data.current.pollution.aqius!).message}</p>
+        {/* <p className={cn("mb-4 -mt-1 font-semibold text-lg", aqiToCategory(data?.data.current.pollution.aqius!).color)}>{aqiToCategory(data?.data.current.pollution.aqius!).message}</p> */}
         <LineChart about="AQI Index" data={chartData} />
       </div> : (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col items-center justify-center w-full">
           <div className="w-1/2 my-2 h-4 rounded-lg bg-secondary animate-pulse" />
           <div className="w-1/2 my-4 h-4 rounded-lg bg-secondary animate-pulse" />
           <div className="w-1/2 h-96 rounded-lg bg-secondary animate-pulse" />

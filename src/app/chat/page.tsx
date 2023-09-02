@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 
 import { Send } from "lucide-react";
 
-
 export default function ChatPage() {
   const [prompt, setPrompt] = useState<string>("");
 
@@ -25,14 +24,14 @@ export default function ChatPage() {
       prompt: "Привет, кто ты?",
       response:
         "Привет! Я чат-ИИ, и сейчас я в роли эколога. Я готов отвечать на ваши вопросы и предоставлять информацию о экологии и окружающей среде. Пожалуйста, задавайте свои вопросы о природе, устойчивости, загрязнении, охране окружающей среды и других экологических темах. Я постараюсь предоставить вам наилучшие ответы и советы по этим вопросам.",
-      id: 1,
+      id: 2,
     },
   ];
 
   const sendMessage = async () => {
     try {
-      axios.post('/api/code', {
-        prompt
+      axios.post('/api/chat', {
+        message: prompt,
       }).then((res) => {
         console.log(res);
       })
