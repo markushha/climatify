@@ -6,8 +6,3 @@ export const aqiClient = axios.create({
     key: "680f6a59-7dfd-4908-aa70-9f8cda98cb13"
   }
 })
-
-export const chatClient = axios.create({
-  baseURL: 'localhost:3000/api/chat',
-  method: 'POST',
-})

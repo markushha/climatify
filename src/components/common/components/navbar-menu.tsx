@@ -15,7 +15,7 @@ import Link from "next/link";
 export default function NavbarMenu({ className }: { className?: string }) {
   return (
     <NavigationMenu>
-      <NavigationMenuList className={cn("gap-x-4}", className)}>
+      <NavigationMenuList className={cn("", className)}>
         <NavigationMenuItem>
           <NavigationMenuTrigger
             className={cn("border-secondary border")}
@@ -23,23 +23,24 @@ export default function NavbarMenu({ className }: { className?: string }) {
             AI Эколог
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[400px] grid-cols-3">
+            <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[400px] grid-cols-2">
               <li className="col-span-3">
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-800 to-slate-900 shadow-2xl p-6 no-underline outline-none focus:shadow-md"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-50 to-slate-200 dark:from-slate-800 dark:to-slate-900 shadow-2xl py-6 px-2 md:p-6 no-underline outline-none focus:shadow-md"
                     href="/chat"
                   >
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      AI Эколог
+                    <div className="mb-2 flex mt-4 text-lg items-center justify-center w-full font-medium">
+                      <p>AI Эколог</p>
+                      <ArrowRight className="ml-2 text-muted-foreground md:hidden flex" size={24} />
                     </div>
                     <div className="flex items-center ">
-                      <p className="text-sm leading-tight text-muted-foreground w-[90%]">
+                      <p className="md:text-sm md:flex hidden leading-tight text-muted-foreground w-[90%]">
                         Наш онлайн чат-бот предоставляет точные данные касательно
                         климатеских изменений и экологической ситуации в вашем
                         городе
                       </p>
-                      <ArrowRight className="ml-2 text-muted-foreground" size={24} />
+                      <ArrowRight className="ml-2 text-muted-foreground md:flex hidden" size={24} />
                     </div>
                   </Link>
                 </NavigationMenuLink>
@@ -47,7 +48,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        {/* <NavigationMenuItem>
           <NavigationMenuTrigger
             className={cn("border-secondary border")}
           >
@@ -75,7 +76,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
               </li>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
         <NavigationMenuItem>
           <NavigationMenuTrigger
             className={cn("border-secondary border")}
@@ -87,17 +88,18 @@ export default function NavbarMenu({ className }: { className?: string }) {
               <li className="col-span-3">
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-800 to-slate-900 shadow-2xl p-6 no-underline outline-none focus:shadow-md"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-50 to-slate-200 dark:from-slate-800 dark:to-slate-900 shadow-2xl py-6 px-2 md:p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      AQI Индекс
+                    <div className="mb-2 flex mt-4 text-lg items-center justify-center w-full font-medium">
+                      <p>AQI Индекс</p>
+                      <ArrowRight className="ml-2 text-muted-foreground md:hidden flex" size={24} />
                     </div>
                     <div className="flex items-center ">
-                      <p className="text-sm leading-tight text-muted-foreground w-[90%]">
+                      <p className="text-sm md:flex hidden leading-tight text-muted-foreground w-[90%]">
                         Узнайте AQI индекс в своем городе в режиме реального времени и посмотрите прогноз AQI на ближайшие 7 дней
                       </p>
-                      <ArrowRight className="ml-2 text-muted-foreground" size={24} />
+                      <ArrowRight className="ml-2 text-muted-foreground md:flex hidden" size={24} />
                     </div>
                   </Link>
                 </NavigationMenuLink>

@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 
+import { Toaster } from "@/components/ui/toaster"
+
 import type { Metadata } from "next";
 
 import Navbar from "@/components/common/layout/navbar";
@@ -22,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <main className="flex mx-auto max-w-[90%] sm:max-w-[85%] md:max-w-[80%]">
@@ -31,6 +33,7 @@ export default function RootLayout({
           <footer className="bg-white dark:bg-transparent mt-16 relative bottom-0 w-full border-t-[1px] dark:border-slate-800 border-slate-100">
             <Footer />
           </footer>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

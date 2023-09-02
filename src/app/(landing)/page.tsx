@@ -1,11 +1,11 @@
 "use client";
 
-import { aqiClient } from "@/axios/client";
-import LineChart from "@/components/common/charts/line-chart";
-import { aqiToCategory } from "@/hooks/aqiToCategory";
-import { cn } from "@/lib/utils";
-import { AqiResponse } from "@/types/aqiResponse";
 import { useEffect, useState } from "react";
+
+import { AqiResponse } from "@/types/aqiResponse";
+
+import LineChart from "@/components/common/charts/line-chart";
+import axios from "axios";
 
 export default function Home() {
   const [data, setData] = useState<AqiResponse>();
@@ -15,7 +15,7 @@ export default function Home() {
   const fetchAQI = async () => {
     try {
       setLoading(true);
-      const response = (await aqiClient.get("/nearest_city")) as any;
+      const response = (await axios.get('/api/aqi')) as any;
       setData(response.data as AqiResponse);
       setLoading(false);
     } catch (err) {
@@ -27,6 +27,21 @@ export default function Home() {
   useEffect(() => {
     fetchAQI();
   }, []);
+
+  // const fetchAiAQI = async () => {
+  //   const response = fetch("https://8gb.n8n.lifalks.online/webhook/air", {
+  //     method: "POST",
+  //     mode: "no-cors",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ ip: "91.185.30.130" }),
+  //   })
+  //     .then((res) => console.log(res))
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // };
 
   const chartData = {
     labels: ["Вчера", "Сегодня", "Прогноз на завтра (ИИ)"],
@@ -53,20 +68,32 @@ export default function Home() {
         <br />
         используя ИИ
       </h2>
-      {!loading ? <div className="flex flex-col items-center justify-center mt-16 md:w-[60%]">
-        <div className="flex items-center">
-          <p className="my-2 text-lg md:text-xl tracking-tight">
-            Индекс загрязнения воздуха {"(AQI)"} в {data?.data.city} сейчас
-          </p>
-          <div className="w-4 h-4 bg-rose-700 animate-pulse rounded-full ml-2" />
+
+      {!loading && !error && (
+        <div className="flex flex-col items-center justify-center mt-16 md:w-[60%]">
+          <div className="md:flex  items-center justify-center">
+            <p className="my-2 text-lg md:text-xl text-center tracking-tight">
+              Индекс загрязнения воздуха {"(AQI)"} в {data?.data.city} сейчас
+            </p>
+            <div className="mx-auto md:mx-0 w-4 h-4 bg-rose-700 animate-pulse rounded-full md:ml-2 my-2 md:my-0" />
+          </div>
+          {/* <p className={cn("mb-4 -mt-1 font-semibold text-lg", aqiToCategory(data?.data.current.pollution.aqius!).color)}>{aqiToCategory(data?.data.current.pollution.aqius!).message}</p> */}
+          <LineChart about="AQI Index" data={chartData} />
         </div>
-        {/* <p className={cn("mb-4 -mt-1 font-semibold text-lg", aqiToCategory(data?.data.current.pollution.aqius!).color)}>{aqiToCategory(data?.data.current.pollution.aqius!).message}</p> */}
-        <LineChart about="AQI Index" data={chartData} />
-      </div> : (
-        <div className="flex flex-col items-center justify-center w-full">
-          <div className="w-1/2 my-2 h-4 rounded-lg bg-secondary animate-pulse" />
-          <div className="w-1/2 my-4 h-4 rounded-lg bg-secondary animate-pulse" />
-          <div className="w-1/2 h-96 rounded-lg bg-secondary animate-pulse" />
+      )}
+
+      {error && (
+        <div className="flex flex-col items-center justify-center w-full mt-16">
+          <p className="text-lg text-center">Произошла ошибка</p>
+          <p className="text-lg text-center">{error}</p>
+        </div>
+      )}
+
+      {loading && (
+        <div className="flex flex-col items-center justify-center w-full mt-16">
+          <div className="w-[85%] my-2 h-4 rounded-lg bg-secondary animate-pulse" />
+          <div className="w-[85%] my-4 h-4 rounded-lg bg-secondary animate-pulse" />
+          <div className="w-[85%] h-96 rounded-lg bg-secondary animate-pulse" />
         </div>
       )}
     </div>
