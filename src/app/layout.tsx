@@ -24,9 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header className="w-full border-b-[1px] dark:border-slate-800 border-slate-100">
-            <Navbar />
-          </header>
+          <Navbar />
           <main className="flex mx-auto max-w-[90%] sm:max-w-[85%] md:max-w-[80%]">
             {children}
           </main>

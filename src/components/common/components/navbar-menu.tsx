@@ -59,7 +59,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                 <NavigationMenuLink asChild>
                   <Link
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-800 to-slate-900 shadow-2xl p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
+                    href="/forest"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">
                       Вероятность лесных пожаров
