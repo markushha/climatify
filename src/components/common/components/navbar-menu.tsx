@@ -1,15 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -18,15 +15,15 @@ import Link from "next/link";
 export default function NavbarMenu({ className }: { className?: string }) {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className={cn("gap-x-4}", className)}>
         <NavigationMenuItem>
           <NavigationMenuTrigger
-            className={cn("border-secondary border mr-2", className)}
+            className={cn("border-secondary border")}
           >
             AI Эколог
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[400px] lg:grid-cols-3">
+            <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[400px] grid-cols-3">
               <li className="col-span-3">
                 <NavigationMenuLink asChild>
                   <Link
@@ -40,7 +37,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                       <p className="text-sm leading-tight text-muted-foreground w-[90%]">
                         Наш онлайн чат-бот предоставляет точные данные касательно
                         климатеских изменений и экологической ситуации в вашем
-                        городе.
+                        городе
                       </p>
                       <ArrowRight className="ml-2 text-muted-foreground" size={24} />
                     </div>
@@ -52,7 +49,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger
-            className={cn("border-secondary border", className)}
+            className={cn("border-secondary border")}
           >
             Forest AI
           </NavigationMenuTrigger>
@@ -69,7 +66,7 @@ export default function NavbarMenu({ className }: { className?: string }) {
                     </div>
                     <div className="flex items-center ">
                       <p className="text-sm leading-tight text-muted-foreground w-[90%]">
-                        Наша платформа может предсказывать пожары по локациям. Мы используем ForestAPI - огромную AI модель, с малой веротностью ошибки.
+                        Наша платформа может предсказывать пожары по локациям. Мы используем ForestAPI - огромную AI модель, с малой веротностью ошибки
                       </p>
                       <ArrowRight className="ml-2 text-muted-foreground" size={24} />
                     </div>
@@ -81,9 +78,9 @@ export default function NavbarMenu({ className }: { className?: string }) {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger
-            className={cn("border-secondary border", className)}
+            className={cn("border-secondary border")}
           >
-            Пожары
+            AQI
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[400px] lg:grid-cols-3">
@@ -94,13 +91,11 @@ export default function NavbarMenu({ className }: { className?: string }) {
                     href="/"
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">
-                      AI Эколог
+                      AQI Индекс
                     </div>
                     <div className="flex items-center ">
                       <p className="text-sm leading-tight text-muted-foreground w-[90%]">
-                        Наш онлайн чат-бот предоставляет точные данные касательно
-                        климатеских изменений и экологической ситуации в вашем
-                        городе.
+                        Узнайте AQI индекс в своем городе в режиме реального времени и посмотрите прогноз AQI на ближайшие 7 дней
                       </p>
                       <ArrowRight className="ml-2 text-muted-foreground" size={24} />
                     </div>

@@ -3,6 +3,7 @@
 import LineChart from "@/components/common/charts/line-chart";
 import Lottie from "react-lottie";
 import animationData from "@/lotties/earth.json";
+import Link from "next/link";
 
 const data = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -39,12 +40,18 @@ export default function Home() {
   return (
     <div className="flex w-full flex-col items-center justify-center my-16">
       {/* <Lottie options={defaultOptions} /> */}
-      <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-sky-500">Climatify</h2>
+      <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-sky-500">
+        Climatify
+      </h2>
       <h2 className="text-lg tracking-tight sm:text-2xl md:text-3xl text-center">
-        платформа для решения климатических проблем<br/>используя ИИ
+        платформа для решения климатических проблем
+        <br />
+        используя ИИ
       </h2>
       <div className="flex flex-col items-center justify-center mt-16 md:w-[60%]">
-        <p className="my-4 text-lg md:text-xl tracking-tight">Индекс загрязнения воздуха {"(AQI)"} в вашем городе</p>
+        <p className="my-4 text-lg md:text-xl tracking-tight">
+          Индекс загрязнения воздуха {"(AQI)"} в вашем городе
+        </p>
         <LineChart about="AQI Index" data={data} />
       </div>
     </div>
