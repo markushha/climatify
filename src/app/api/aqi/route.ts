@@ -11,7 +11,7 @@ export async function GET(req: any) {
   try {
     const response = await aqiClient.get("/nearest_city", {
       params: {
-        ip: detectedIp,
+        ip: "95.56.248.140"
       }
     });
     return NextResponse.json(response.data);
