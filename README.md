@@ -1,10 +1,24 @@
-## Climatify - это некоммерческая SaaS платформа в которой интегрированно множество ИИ моделей для увеличения осведомленности населения касательно экологических проблем
+### Climatify
+## Проект был реализован в рамках AI + Climate Change Hackathon от Makerspace Almaty за 24 часа.<br></br>Climatify - это некоммерческая SaaS платформа в которой интегрированно множество ИИ моделей для увеличения осведомленности населения касательно экологических проблем
 
-### Полная документация выйдет завтра
+### Front-End Stack:
+- Next.js with App Router
+- shadcn/ui as ui library
+- axios for api calls
+- openai lib
 
-## Как запустить проект локально
+### Back-End Stack:
+- n8n
+- Typescript
+- Bing AI integration
+- openai integration
+- Docker for containers
 
-Установите пакеты
+ ### MVP проекта доступен по [этой](https://climate.jumify.kz/) ссылке
+
+## How to contribute?
+
+#### Download packages
 
 ```bash
 npm install
@@ -12,7 +26,7 @@ npm install
 yarn
 ```
 
-Запустите сервер
+#### Launch server
 
 ```bash
 npm run dev
@@ -21,5 +35,3 @@ yarn dev
 # or
 pnpm dev
 ```
-
-MVP проекта доступен по [этой](https://climate.jumify.kz/) ссылке
