@@ -44,7 +44,6 @@ export default function ChatPage() {
       setPrompt("");
       toast({
         title: "Ой, что-то пошло не так!",
-        description: e.response.data,
         variant: "error",
       });
       setLoading(false);
