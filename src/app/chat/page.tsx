@@ -63,8 +63,8 @@ export default function ChatPage() {
   };
 
   return (
-    <ScrollArea className="border-slate-100 px-6 dark:border-slate-800 border my-16 w-full rounded-xl max-h-[80vh]">
-      <div className="flex flex-col items-center justify-center">
+    <ScrollArea className="border-slate-100 px-6 dark:border-slate-800 border my-16 w-full rounded-xl ">
+      <div className="flex flex-col items-center justify-center min-h-[600px] max-h-[80vh]">
         <AnimatePresence>
           {messages.length > 0 ? (
             <div className="my-8 gap-y-6 flex flex-col">

@@ -48,7 +48,7 @@ export default function Home() {
     datasets: [
       {
         label: `Индекс AQI в ${data?.data.city}`,
-        data: [50, data?.data.current.pollution.aqius, 51],
+        data: [46, data?.data.current.pollution.aqius, 37],
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",

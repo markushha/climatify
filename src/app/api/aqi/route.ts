@@ -3,9 +3,17 @@
 import { aqiClient } from "@/axios/client";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+import requestIp from 'request-ip';
+
+export async function GET(req: any) {
+  const detectedIp = requestIp.getClientIp(req);
+
   try {
-    const response = await aqiClient.get("/nearest_city");
+    const response = await aqiClient.get("/nearest_city", {
+      params: {
+        ip: detectedIp,
+      }
+    });
     return NextResponse.json(response.data);
   } catch (e) {
     return new NextResponse("Internal Server Error", { status: 500 });
